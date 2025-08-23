@@ -12,6 +12,60 @@
             <meta charset="UTF-8" />
             <meta name="viewport" content="width=device-width, initial-scale=1.0" />
             <title><xsl:value-of select="title"/></title>
+            
+            <!-- Critical CSS for loader and to prevent flash of unstyled content -->
+            <style>
+                :root {
+                    --bg-color-light: #ffffff;
+                    --bg-color-dark: #1a202c;
+                    --primary-color-light: #007bff;
+                    --primary-color-dark: #63b3ed;
+                }
+                body {
+                    background-color: var(--bg-color-light);
+                    margin: 0;
+                }
+                @media (prefers-color-scheme: dark) {
+                    body { background-color: var(--bg-color-dark); }
+                }
+
+                #page-loader {
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    width: 100vw;
+                    height: 100vh;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    z-index: 9999;
+                    background-color: var(--bg-color-light);
+                    transition: opacity 0.3s ease-out;
+                }
+                @media (prefers-color-scheme: dark) {
+                    #page-loader { background-color: var(--bg-color-dark); }
+                }
+                
+                #page-loader .spinner {
+                    width: 40px;
+                    height: 40px;
+                    border: 4px solid rgba(0,0,0,0.1);
+                    border-left-color: var(--primary-color-light);
+                    border-radius: 50%;
+                    animation: spin 1s linear infinite;
+                }
+                @media (prefers-color-scheme: dark) {
+                    #page-loader .spinner {
+                        border: 4px solid rgba(255,255,255,0.1);
+                        border-left-color: var(--primary-color-dark);
+                    }
+                }
+
+                @keyframes spin {
+                    to { transform: rotate(360deg); }
+                }
+            </style>
+
             <link rel="stylesheet" href="style.css" />
             <xsl:if test="contains($currentPath, '../')">
                 <link rel="stylesheet" href="../style.css" />
@@ -21,7 +75,7 @@
             <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&amp;family=Source+Code+Pro:wght@400;600&amp;display=swap" rel="stylesheet" />
         </head>
         <body>
-            <div id="loader">
+            <div id="page-loader">
                 <div class="spinner"></div>
             </div>
 
