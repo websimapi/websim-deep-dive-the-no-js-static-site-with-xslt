@@ -123,6 +123,9 @@ main {
 section {
     margin-bottom: 3rem;
 }
+section:last-of-type {
+    margin-bottom: 0;
+}
 
 h2 {
     font-size: 1.75rem;
@@ -254,4 +257,3 @@ footer {
         font-size: 3rem;
     }
 }
-
