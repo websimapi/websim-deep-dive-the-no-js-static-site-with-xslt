@@ -78,6 +78,32 @@ header::before {
     z-index: 1;
 }
 
+nav {
+    position: relative;
+    z-index: 2;
+    background-color: rgba(0,0,0,0.1);
+    border-top: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+    padding: 0.5rem 1.5rem;
+    text-align: center;
+    margin-top: 2rem;
+}
+
+nav a {
+    color: var(--header-text);
+    text-decoration: none;
+    font-weight: 600;
+    padding: 0.5rem 1rem;
+    margin: 0 0.5rem;
+    border-radius: 4px;
+    transition: background-color 0.2s;
+}
+
+nav a:hover {
+    background-color: rgba(0,0,0,0.1);
+    text-decoration: none;
+}
+
 header h1 {
     font-size: 2.5rem;
     font-weight: 700;

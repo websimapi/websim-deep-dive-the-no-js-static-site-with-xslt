@@ -18,6 +18,10 @@
                 <div class="header-content">
                     <xsl:copy-of select="headerContent/node()"/>
                 </div>
+                <nav>
+                    <a href="/index.xml">Home</a>
+                    <a href="/posts/deep-dive-xslt.xml">XSLT Deep Dive</a>
+                </nav>
             </header>
 
             <main>
