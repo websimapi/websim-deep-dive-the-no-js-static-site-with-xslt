@@ -21,6 +21,10 @@
             <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&amp;family=Source+Code+Pro:wght@400;600&amp;display=swap" rel="stylesheet" />
         </head>
         <body>
+            <div id="loader">
+                <div class="spinner"></div>
+            </div>
+
             <header>
                 <div class="header-content">
                     <xsl:copy-of select="headerContent/node()"/>
